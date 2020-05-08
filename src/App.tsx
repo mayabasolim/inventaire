@@ -2,29 +2,94 @@ import React, { useState } from "react";
 
 import InventoryObject from "./components/InventoryObject";
 import InventoryObjectForm from "./components/InventoryObjectForm";
-import { InventoryObjet } from "./Class";
+import InventoryForm from "./components/InventoryForm";
+import { InventoryObjet, Inventory } from "./Class";
 
 const App = () => {
+    const local = {
+        id: "1582898046485",
+        name: "Kowffice",
+        ref: "AERD24RF",
+        address: "13 rue Christophe Colomb",
+    };
+    const [currentInventory, setCurrentInventory] = useState<Inventory>({
+        id: "IIOI",
+        date: new Date("01/01/2020"),
+        description: "ENventaire du jour",
+        local: {
+            id: "1582898046485",
+            name: "Kowffice",
+            ref: "AERD24RF",
+            address: "13 rue Christophe Colomb",
+        },
+    });
+    const [inventories, setInventories] = useState<Array<Inventory>>([
+        {
+            id: "IIOI",
+            date: new Date("01/01/2020"),
+            description: "ENventaire du jour",
+            local: {
+                id: "1582898046485",
+                name: "Kowffice",
+                ref: "AERD24RF",
+                address: "13 rue Christophe Colomb",
+            },
+        },
+    ]);
+
     const [inventoryObjets, setInventoryObjets] = useState<
         Array<InventoryObjet>
     >([
         {
-            id: "A000",
+            id: "1582898046485",
             designation: "Chaises",
             quantity: 4,
-            description: "Chaises",
+            commentaire: "Chaises",
+            inventory: {
+                id: "IIOI",
+                date: new Date("01/01/2020"),
+                description: "ENventaire du jour",
+                local: {
+                    id: "1582898046485",
+                    name: "Kowffice",
+                    ref: "AERD24RF",
+                    address: "13 rue Christophe Colomb",
+                },
+            },
         },
         {
-            id: "A100",
+            id: "15858898046485",
             designation: "Climatiseurs",
             quantity: 4,
-            description: "Climatiseurs",
+            commentaire: "Climatiseurs",
+            inventory: {
+                id: "IIOI",
+                date: new Date("01/01/2020"),
+                description: "ENventaire du jour",
+                local: {
+                    id: "1582898046485",
+                    name: "Kowffice",
+                    ref: "AERD24RF",
+                    address: "13 rue Christophe Colomb",
+                },
+            },
         },
         {
-            id: "A200",
+            id: "1588897046485",
             designation: "Ordinateurs",
             quantity: 4,
-            description: "Ordinateurs",
+            commentaire: "Ordinateurs",
+            inventory: {
+                id: "IIOI",
+                date: new Date("01/01/2020"),
+                description: "ENventaire du jour",
+                local: {
+                    id: "1582898046485",
+                    name: "Kowffice",
+                    ref: "AERD24RF",
+                    address: "13 rue Christophe Colomb",
+                },
+            },
         },
     ]);
 
@@ -39,25 +104,46 @@ const App = () => {
         setInventoryObjets(inventoryObjetsCopy);
     };
 
-    const handleAdd = (inventoryObjet: InventoryObjet) => {
+    const handleAddInventoryObjet = (inventoryObjet: InventoryObjet) => {
         const inventoryObjetsCopy = [...inventoryObjets];
         inventoryObjetsCopy.push(inventoryObjet);
 
         setInventoryObjets(inventoryObjetsCopy);
     };
 
+    const handleAddInventory = (newinventory: Inventory) => {
+        const inventoriesCopy = [...inventories];
+        inventoriesCopy.push(newinventory);
+
+        setInventories(inventoriesCopy);
+        setCurrentInventory(newinventory);
+    };
+
     return (
         <div>
+            <InventoryForm onInventaireAdd={handleAddInventory} local={local} />
+            <InventoryObjectForm
+                inventory={currentInventory}
+                onInventaireObjectAdd={handleAddInventoryObjet}
+            />
+
+            {`${currentInventory.date.toString()} -  ${
+                currentInventory.description
+            }`}
             <ul>
-                {inventoryObjets.map((inventoryObjet) => (
-                    <InventoryObject
-                        key={inventoryObjet.id}
-                        details={inventoryObjet}
-                        onDelete={handleDelete}
-                    />
-                ))}
+                {inventoryObjets
+                    .filter(
+                        (inventoryObjet) =>
+                            inventoryObjet.inventory.id === currentInventory.id
+                    )
+                    .map((inventoryObjet) => (
+                        <InventoryObject
+                            key={inventoryObjet.id}
+                            details={inventoryObjet}
+                            onDelete={handleDelete}
+                        />
+                    ))}
             </ul>
-            <InventoryObjectForm onInventaireObjectAdd={handleAdd} />
         </div>
     );
 };

@@ -1,12 +1,15 @@
 import React from "react";
 
+import { Inventory } from "../Class";
+
 interface Props {
     onDelete: (id: string) => void;
     details: {
         id: string;
         designation: string;
         quantity: Number;
-        description: string;
+        commentaire: string;
+        inventory: Inventory;
     };
 }
 
@@ -15,7 +18,7 @@ const InventoryObject = (props: Props) => {
     return (
         <li>
             {details.id} {details.designation} {details.quantity}{" "}
-            {details.description}{" "}
+            {details.commentaire}{" "}
             <button onClick={() => onDelete(details.id)}>X</button>
         </li>
     );

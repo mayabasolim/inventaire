@@ -51,7 +51,7 @@ export const INVENTORY_OBJET = [
     {
         id: "15858898046485",
         designation: "Climatiseurs",
-        quantity: 4,
+        quantity: 6,
         commentaire: "Climatiseurs",
         inventory: {
             id: "IIOI",
@@ -68,7 +68,7 @@ export const INVENTORY_OBJET = [
     {
         id: "1588897046485",
         designation: "Ordinateurs",
-        quantity: 4,
+        quantity: 5,
         commentaire: "Ordinateurs",
         inventory: {
             id: "IIOI",

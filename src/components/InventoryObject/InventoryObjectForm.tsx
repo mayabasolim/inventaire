@@ -1,14 +1,22 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { Input, Label, Button, Back } from "../../styles";
 
-import { InventoryObjet, Inventory } from "../Class";
+import { InventoryObjet, Inventory } from "../../Class";
 
 interface Props {
     onInventaireObjectAdd: (inventoryObjectForm: InventoryObjet) => void;
+    setAccessToInventoryObjectForm: (
+        accessToInventoryObjectForm: boolean
+    ) => void;
     inventory: Inventory;
 }
 
 const InventoryObjectForm = (props: Props) => {
-    const { onInventaireObjectAdd, inventory } = props;
+    const {
+        onInventaireObjectAdd,
+        inventory,
+        setAccessToInventoryObjectForm,
+    } = props;
     const [designation, setDesignation] = useState<string>("");
     const [quantity, setQuantity] = useState<number>(0);
     const [commentaire, setCommentaire] = useState<string>("");
@@ -41,27 +49,34 @@ const InventoryObjectForm = (props: Props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                value={designation}
-                onChange={handleDesignation}
-                type="text"
-                placeholder="Ajouter une designation"
-            />
-            <input
-                value={quantity}
-                onChange={handleQuantity}
-                type="number"
-                placeholder="Ajouter une quantité"
-            />
-            <input
-                value={commentaire}
-                onChange={handleCommentaire}
-                type="text"
-                placeholder="Ajouter une commentaire"
-            />
-            <button>Confirmer</button>
-        </form>
+        <>
+            <form onSubmit={handleSubmit}>
+                <Label>Désignaton de l'objet :</Label>
+                <Input
+                    value={designation}
+                    onChange={handleDesignation}
+                    type="text"
+                />
+                <Label>Quantité :</Label>
+                <Input
+                    value={quantity}
+                    onChange={handleQuantity}
+                    type="number"
+                />
+                <Label>Commentaire :</Label>
+                <Input
+                    value={commentaire}
+                    onChange={handleCommentaire}
+                    type="text"
+                />
+                <div>
+                    <Button>Enregistrer</Button>
+                </div>
+            </form>
+            <Back onClick={() => setAccessToInventoryObjectForm(false)}>
+                Retour
+            </Back>
+        </>
     );
 };
 

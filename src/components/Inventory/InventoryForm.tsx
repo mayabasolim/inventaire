@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
-import { Inventory, Local } from "../Class";
+import { Inventory, Local } from "../../Class";
+import { Input, Label, Button } from "../../styles";
 
 interface Props {
     onInventaireAdd: (inventory: Inventory) => void;
@@ -36,17 +37,17 @@ const InventoryForm = (props: Props) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>
-                Inventaire du local {local.name} le: {date.toString()}
-            </label>
-            <input
+            <Label>
+                Inventaire du local {local.name} le: {date.toLocaleString()}
+            </Label>
+            <Input
                 value={description}
                 onChange={handleDescription}
                 type="text"
                 placeholder="Ajouter une description"
             />
 
-            <button>Confirmer</button>
+            <Button>Confirmer</Button>
         </form>
     );
 };

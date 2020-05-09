@@ -1,14 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Input, Label, Button, Back } from "../../styles";
 
-import { InventoryObjet, Inventory } from "../../Class";
+import { Input, Label, Button, Back } from "../../styles";
+import { InventoryObjetItem, InventoryItem } from "../../Class";
 
 interface Props {
-    onInventaireObjectAdd: (inventoryObjectForm: InventoryObjet) => void;
+    onInventaireObjectAdd: (inventoryObjectForm: InventoryObjetItem) => void;
     setAccessToInventoryObjectForm: (
         accessToInventoryObjectForm: boolean
     ) => void;
-    inventory: Inventory;
+    inventory: InventoryItem;
 }
 
 const InventoryObjectForm = (props: Props) => {
@@ -44,8 +44,6 @@ const InventoryObjectForm = (props: Props) => {
         });
 
         setDesignation("");
-        setQuantity(parseInt(""));
-        setCommentaire("");
     };
 
     return (

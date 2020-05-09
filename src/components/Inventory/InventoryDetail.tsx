@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Inventory } from "../../Class";
+import { InventoryItem } from "../../Class";
 
 interface Props {
-    details: Inventory;
-    handleDetailInventory: (invent: Inventory) => void;
+    details: InventoryItem;
+    handleDetailInventory: (invent: InventoryItem) => void;
 }
 
-const AnInventory = (props: Props) => {
+const InventoryDetail = (props: Props) => {
     const { handleDetailInventory, details } = props;
     return (
         <tr>
@@ -22,4 +22,4 @@ const AnInventory = (props: Props) => {
     );
 };
 
-export default AnInventory;
+export default InventoryDetail;

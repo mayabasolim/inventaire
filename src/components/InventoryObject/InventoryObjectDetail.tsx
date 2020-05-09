@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Inventory } from "../../Class";
+import { InventoryItem } from "../../Class";
 
 interface Props {
     onDelete: (id: string) => void;
@@ -9,11 +9,11 @@ interface Props {
         designation: string;
         quantity: Number;
         commentaire: string;
-        inventory: Inventory;
+        inventory: InventoryItem;
     };
 }
 
-const InventoryObject = (props: Props) => {
+const InventoryObjectDetail = (props: Props) => {
     const { onDelete, details } = props;
     return (
         <tr>
@@ -27,4 +27,4 @@ const InventoryObject = (props: Props) => {
     );
 };
 
-export default InventoryObject;
+export default InventoryObjectDetail;

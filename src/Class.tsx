@@ -1,19 +1,19 @@
-export type InventoryObjet = {
+export type InventoryObjetItem = {
     id: string;
     designation: string;
     quantity: number;
     commentaire: string;
-    inventory: Inventory;
+    inventory: InventoryItem;
 };
 
-export type Inventory = {
+export type InventoryItem = {
     id: string;
     date: Date;
     description: string;
-    local: Local;
+    local: LocalItem;
 };
 
-export type Local = {
+export type LocalItem = {
     id: string;
     name: string;
     ref: string;

@@ -7,7 +7,8 @@ import { InventoryItem } from "./Class";
 import { Header, Title, InfosTitle, SubTitle } from "./styles";
 
 const App = () => {
-    // localStorage.clear();
+    //localStorage.clear();
+
     //After choose date of inventory , you may go to the next stape to register the objects
     const [
         accessToInventoryObjectForm,
@@ -24,8 +25,8 @@ const App = () => {
     );
     return (
         <>
-            <Header>Kowffit</Header>
-            <Title>Inventaire</Title>
+            <Header>Kowffice</Header>
+            <Title>Inventaire </Title>
             <InfosTitle>
                 Date:
                 {currentInventory.date.toLocaleString()} <br />

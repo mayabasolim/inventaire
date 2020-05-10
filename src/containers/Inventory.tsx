@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { LOCAL, INENTORIES } from "../Data";
+import { LOCAL, INENTORY_LIST } from "../Data";
 import InventoryDetail from "../components/Inventory/InventoryDetail";
 import InventoryForm from "../components/Inventory/InventoryForm";
 import { InventoryItem } from "../Class";
@@ -22,7 +22,7 @@ const Inventory = (props: Props) => {
         () =>
             inventoryListJson !== null
                 ? JSON.parse(inventoryListJson)
-                : INENTORIES
+                : INENTORY_LIST
     );
 
     const handleAddInventory = (newinventory: InventoryItem) => {
@@ -43,7 +43,6 @@ const Inventory = (props: Props) => {
         setCurrentInventory(newinventory);
         setAccessToInventoryObjectForm(true);
     };
-    console.log(inventoryList);
 
     return (
         <>

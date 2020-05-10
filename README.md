@@ -13,7 +13,7 @@ Ouvrir [http://localhost:3000](http://localhost:3000) pour le voir dans le navig
 
 **Note: Nous avons utilisé le diagramme suivant après l'analyse des spécifications du projet !**
 
-![diagramme de classe](https://github.com/mayabasolim/inventaire/classDiagram.png)
+![diagramme de classe](https://github.com/mayabasolim/inventaire/blob/master/classDiagram.png)
 
 ## `Perspectives`
 

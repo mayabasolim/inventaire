@@ -7,7 +7,8 @@ interface Props {
     details: {
         id: string;
         designation: string;
-        quantity: Number;
+        quantity?: Number;
+        quantityRange?: { from: number; to: number };
         commentaire: string;
         inventory: InventoryItem;
     };
@@ -18,7 +19,15 @@ const InventoryObjectDetail = (props: Props) => {
     return (
         <tr>
             <td>{details.designation}</td>
-            <td>{details.quantity}</td>
+            <td>
+                {details.quantityRange
+                    ? "[" +
+                      details.quantityRange.from +
+                      " - " +
+                      details.quantityRange.to +
+                      "]"
+                    : details.quantity}
+            </td>
             <td>{details.commentaire}</td>
             <td>
                 <button onClick={() => onDelete(details.id)}>Supprimer</button>

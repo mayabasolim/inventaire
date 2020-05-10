@@ -15,6 +15,15 @@ export const Input = styled.input`
     box-sizing: border-box;
     font-size: 1.2rem;
 `;
+export const InputRanger = styled.input`
+    width: 45%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+`;
 export const Button = styled.button`
     background-color: #ff0066;
     color: white;

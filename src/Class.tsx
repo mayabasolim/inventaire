@@ -1,7 +1,10 @@
+import { format } from "path";
+
 export type InventoryObjetItem = {
     id: string;
     designation: string;
-    quantity: number;
+    quantity?: number;
+    quantityRange?: { from: number; to: number };
     commentaire: string;
     inventory: InventoryItem;
 };

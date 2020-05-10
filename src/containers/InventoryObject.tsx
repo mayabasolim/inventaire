@@ -51,7 +51,7 @@ const InventoryObject = (props: Props) => {
             JSON.stringify(inventoryObjetListCopy)
         );
     };
-
+    console.log(inventoryObjetList);
     return (
         <>
             <Content>

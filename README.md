@@ -24,4 +24,4 @@ Pour faire un nouvel inventaire
 -   Modifier la quantité des différents objets si besoin
 -   Enregistrer
 
-Gérer les type d'objet
+Gérer les types d'objets
